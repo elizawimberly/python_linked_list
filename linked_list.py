@@ -31,18 +31,34 @@ Phase 2:
 class Node:
   # TODO: Set the `_value` `_next` node instance variables
   def __init__(self, value):
-    pass
+    self._value = value
+    self._next = None
 
 
 # TODO: Implement a Singly Linked List class here
 class LinkedList:
   # TODO: Set the `_head` node, `_tail` node, and list `_length` instance variables
   def __init__(self):
-    pass
+    self._head = None
+    self._tail = None
+    self._length = 0
 
   # TODO: Implement the get_node method here
   def get_node(self, position):
-    pass
+    #get position of instance of node
+    #else return None implicitly
+
+    if not self._head:
+      return None
+
+    i = 0
+    current = self._head
+    while i < position:
+      current = current._next
+      i += 1
+    return current._value
+
+
 
   # TODO: Implement the add_to_tail method here
   def add_to_tail(self, value):
@@ -93,10 +109,10 @@ node = Node('hello')
 print(node)                                     # <__main__.Node object at ...>
 print(node._value)                              # hello
 linked_list = LinkedList()
-print(linked_list)                              # <__main__.LinkedList object at ...>
+# print(linked_list)                              # <__main__.LinkedList object at ...>
 
 # # 2. Test getting a node by its position
-# print(linked_list.get_node(0))                # None
+print(linked_list.get_node(0))                # None
 
 # # 3. Test adding a node to the list's tail
 # linked_list.add_to_tail('new tail node')
